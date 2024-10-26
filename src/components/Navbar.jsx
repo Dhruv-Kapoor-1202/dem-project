@@ -10,10 +10,10 @@ const Navbar = ({ onSearch }) => {
   };
 
   return (
-    <nav className="flex items-center justify-center gap-4 py-1 pl-4 pr-1 mt-8 text-white duration-200 border rounded-full shadow-md md:gap-6 border-white/15 w-fit backdrop-blur-sm bg-gray-950/10 shadow-white/5">
-      <h1 className="italic font-semibold">Event Spot Lite</h1>
+    <nav className="flex items-baseline justify-center gap-4 py-1 pl-1 pr-1 mt-8 text-white duration-200 border rounded-full shadow-md sm:pl-4 md:gap-6 border-white/15 w-fit backdrop-blur-sm bg-gray-950/10 shadow-white/5">
+      <h1 className="hidden italic font-semibold sm:block">Event Spot Lite</h1>
       <input
-        className="px-3 py-1 border rounded-lg bg-inherit border-white/15"
+        className="px-4 py-1 border rounded-full bg-inherit border-white/15"
         type="text"
         placeholder="Search by events..."
         value={query}
