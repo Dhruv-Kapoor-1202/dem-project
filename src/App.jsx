@@ -8,7 +8,8 @@ function App() {
   const [filteredEvents, setFilteredEvents] = useState(eventsData);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
-  const handleSearch = (query) => {
+  const handleSearch = async (query) => {
+    // await new Promise((r) => setTimeout(r, 3000));
     const filtered = eventsData.filter(
       (event) =>
         event.name.toLowerCase().includes(query.toLowerCase()) ||
@@ -20,16 +21,23 @@ function App() {
   return (
     <>
       <div className="flex flex-col items-center justify-start gap-4 mb-10">
-        {/* <div className="absolute top-0 z-[-2]  w-full h-screen max-h-full  bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00000d_1px)] bg-[size:20px_20px]"></div> */}
         <Navbar onSearch={handleSearch} />
-        <div className="border divide-y-2 sm:rounded-xl divide-white/5 bg-gray-950/90 backdrop-blur-sm border-white/15">
-          {filteredEvents.map((event) => (
-            <EventCard
-              key={event.id}
-              event={event}
-              onClick={setSelectedEvent}
-            />
-          ))}
+        <div className="w-full max-w-screen-md border divide-y-2 sm:rounded-xl divide-white/5 bg-gray-950/90 backdrop-blur-sm border-white/15">
+          {filteredEvents.length > 0 ? (
+            filteredEvents.map((event) => (
+              <EventCard
+                key={event.id}
+                event={event}
+                onClick={setSelectedEvent}
+              />
+            ))
+          ) : (
+            <div className="grid w-full grid-cols-4 gap-2 px-4 py-6 duration-200 border cursor-pointer hover:bg-gray-900/20 sm:rounded-xl border-white/15 animate-pulse">
+              <div className="h-2 col-span-2 rounded bg-slate-700"></div>
+              <div className="h-2 col-span-1 rounded bg-slate-700"></div>
+              <div className="h-2 col-span-1 rounded bg-slate-700"></div>
+            </div>
+          )}
         </div>
         <EventModal
           event={selectedEvent}

@@ -3,7 +3,7 @@
 
 const EventCard = ({ event, onClick }) => (
   <div
-    className="grid grid-cols-4 px-4 pt-4 pb-4 cursor-pointer hover:bg-gray-900/40"
+    className="grid grid-cols-4 p-4 duration-200 cursor-pointer hover:bg-gray-900/40"
     onClick={() => onClick(event)}
   >
     <h3 className="col-span-2">{event.name}</h3>
