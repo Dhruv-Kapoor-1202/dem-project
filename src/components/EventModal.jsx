@@ -6,12 +6,12 @@ const EventModal = ({ event, onClose }) => {
 
   return (
     <div
-      className="fixed flex flex-col items-center justify-center w-full h-screen p-4 bg-black/5 backdrop-blur-sm "
+      className="fixed flex flex-col items-center justify-center w-full h-screen p-4 bg-white/5 backdrop-blur-sm "
       onClick={onClose}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="flex flex-col w-full max-w-screen-md border shadow-sm overflow-clip animate-scale-up bg-gray-950 group rounded-xl focus:outline-none focus:shadow-lg border-white/15 "
+        className="flex flex-col w-full max-w-screen-md border shadow-lg bg-gray-50 overflow-clip animate-scale-up group rounded-xl focus:outline-none focus:shadow-lg border-black/15 "
       >
         <div className="relative pt-[50%] sm:pt-[60%] lg:pt-[80%] rounded-t-xl overflow-hidden">
           <button
@@ -44,13 +44,13 @@ const EventModal = ({ event, onClose }) => {
           />
         </div>
         <div className="p-4 md:p-5">
-          <h3 className="text-lg font-bold text-white">
+          <h3 className="text-lg font-bold text-gray-800">
             {event.id}. {event.name}{" "}
-            <span className="text-xs font-semibold text-neutral-400">
+            <span className="text-xs font-semibold text-neutral-600">
               {event.date}
             </span>
           </h3>
-          <p className="mt-1 text-neutral-400">{event.description}</p>
+          <p className="mt-1 text-neutral-700">{event.description}</p>
         </div>
       </div>
     </div>
